@@ -1,0 +1,333 @@
+
+\documentclass{article}
+\usepackage[mathletters]{ucs}
+\usepackage{mathtools}
+\usepackage[utf8x]{inputenc}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\usepackage{graphicx,todo}
+
+
+
+\title{ASSIGNMENT 3}
+
+\begin{document}
+\maketitle
+\begin{center}
+\Large \textbf{PARTICLE SWARM OPTIMIZATION}
+\\[5pt]
+\centering
+\small {\bf Evolutionary Computation - CSCI 547}
+\\[6pt]
+\begin{table}[h]
+\centering
+\begin{tabular}{lr}
+Shreya Jayeshbhai Patel
+\\[0.75pt]
+Student Id: 201906408
+
+\end{tabular}
+\end{table}
+\end{center}
+
+\renewcommand\thepage{} % to remove page number
+%new page for Abstract
+\newpage
+
+\begin{center}
+
+\begin{center}
+\emph{\LARGE ABSTRACT}\\[1cm]
+    
+\end{center}
+\begin{center}
+\begin{minipage}{33em}
+\noindent
+The assignments implements Particle Swarm Optimization. 
+Using PSO it stimulates behaviour of swarm and is useful 
+in order to optimize numeric problems iteratively. We 
+observe nature and try to learn how biological phenomenon 
+can be implemented in a computer system in order 
+to optimize the problems. In PSO our main focus is how 
+behaviour of group of birds and their interaction with environment
+
+\end{minipage}
+\end{center}
+
+
+
+
+
+
+
+\end{center}
+
+\renewcommand\thepage{} % to remove page number
+%new page for Introduction
+\newpage
+\begin{center}
+
+\begin{center}
+\emph{\LARGE INTRODUCTION}\\[1cm]
+    
+\end{center}
+\begin{center}
+\begin{minipage}{33em}
+\noindent
+\emph{\LARGE Particle Swarm Optimization: }\\[0.5cm]
+
+Particle Swarm intelligence is inspired by a swarm of birds.
+The overall concept of PSO is on what biological phenomena, 
+the working is based upon.PSO is a population based algorithm
+Each particles is attracted to some degree to the best 
+location it has so far, found by any member. After some steps, 
+the population can unite around one location, or can 
+join together around a few locations, or can continue 
+to move.Particle Swarm Optimization has some similarities 
+with genetic programming. A collection of individuals 
+called particles moves in steps through a region.At each step, 
+the algorithm evaluates the objective function at each particle 
+After evaluation, the algorithm decides on the new velocity of each particle. 
+The particles move, then the algorithm reevaluates
+
+\vspace{0.25in}
+\noindent
+\emph{\LARGE PSO versus GA }\\[0.5cm]
+The have common procedure: randomly generate initial population, estimate fitness value, reproduction based on the fitness value.In genetic algorithm we have operators like crossover and mutation whereas, we don’t have such operators in particle swarm optimization. Particles in update with internal velocity. They also have memory.
+Information Sharing in different in PSO when compared with GA. In GA chromosomes share information with each other and the whole group of population moves towards optimum result. 
+Whereas, in PSO only gBest can give information to others. It is a one-way mechanism and it looks for only the best result. 
+
+
+
+
+
+\end{minipage}
+\end{center}
+\newpage
+
+\begin{center}
+
+\begin{center}
+\begin{minipage}{33em}
+\noindent
+\emph{\LARGE TEST FUNCTION FOR OPTIMIZATION}\\
+\vspace{0.10in}
+\noindent
+\section{\small Beale Function}
+
+f(x,y)=(1.5−x+xy)2+(2.25−x+xy2)2+(2.625−x+xy3)2
+
+\section{\small Three Hump Camel Function}
+f(x,y)=2x2−1.05x4+(x6)/6+xy+y2
+
+\vspace{0.75in}
+\noindent
+\emph{\LARGE PsuedoCode }\\[0.5cm]
+\begin{itemize}
+  \item w = inertia
+  \item c1 = x velocity coeff
+  \item c2 = velocity coeff
+  \item rand1,2 = 0<=rand<=1
+ 
+        Random allocation algorithm
+    \\[2pt]
+		$\! for each particle in system $
+		\\[2pt]
+	 $\!for dimension x and y$
+	 \\[2pt]
+	 initialize positions x|y (p) within the range given 
+	 \\[2pt]
+	 initialize velocity of each particle within permissible range
+	 \\[2pt]
+	Fitness value calculation
+	\\[2pt]
+		 for each particle
+		 \\[2pt]
+		 calculate dimension z as fitness value
+		 \\[2pt]
+			 if fitness value is better than $p_best$ value in history --> set current value as $pbest$
+			 \\[2pt]
+		choose the particle having best among the whole group as $g_best$ particle
+		\\[2pt]
+			
+	Update position and calculate velocity
+	\\[2pt]
+		for each particle
+		\\[2pt]
+			 for each dimension
+			 \\[2pt]
+				 calculate velocity according to below
+				 \\[2pt]
+					 v(k+1)=w.v(k)+c1.rand1.(pbest-x) +c2.rand2.(gbest-x)
+					 \\[2pt]
+
+					 update position as x(k+1) =x(k) +v(k+1)
+
+       
+       
+       
+
+  
+\end{itemize}
+
+
+\end{minipage}
+\end{center}
+
+\end{center}
+
+\newpage
+
+\begin{center}
+
+\begin{center}
+\emph{\LARGE VISUALIZATION}\\[0.5cm]
+    
+\end{center}
+\begin{center}
+\begin{minipage}{33em}
+\noindent
+For Visualization I have used gnuplot.
+Started with downloading gnuplot from https://sourceforge.net/projects/gnuplot/
+After it is  downloaded and installed start the execution file(wgnuplot.exe). 
+\\[1pt]
+Now type the below code :
+\begin{itemize}
+    \item set dgrid 45,45
+    \item set xrange [-5.0:5.0] ; set yrange [-5.0:5.0]
+    \item set hidden3d
+    \item splot '<coordinate file generated by py script>' u 1:2:3 with lines tit "Graph”
+\\[1pt]
+\textbf{Co-ordinates file will be generated on every run}
+\\[0.25pt]
+\textbf{I have done visualization for the following code:}
+\\[0.30pt]
+\textbf{Run python script with 10000 elements. with 10 iteration each}
+
+\section*{VISUALIZATION FOR BEALE FUNCTION}
+ 
+\item python PSOTest.py 10000 10 0.5 0.8 0.9 4.5 4.5 -4.5 -4.5
+
+\item files are generated in the folder. Co-Ordinate file : CO-Ordinates20191117-160346
+
+
+\end{itemize}
+\end{minipage}
+\end{center}
+
+    \includegraphics[width=0.45\linewidth]{image1.jpg}
+    \label{fig:gnuplotforbeale}
+    
+    \includegraphics[width=0.50\linewidth]{Plot1-BealeFunc.png}
+    \label{fig:plotBeale}
+    
+
+\end{center}
+\newpage
+
+\begin{center}
+
+\begin{center}
+\emph{\LARGE VISUALIZATION}\\[0.5cm]
+    
+\end{center}
+\begin{center}
+\begin{minipage}{33em}
+\noindent
+
+
+\begin{itemize}
+\item 
+
+\section*{VISUALIZATION FOR Three Hump Camel FUNCTION}
+
+
+\item python PSOTest.py 10000 10 0.5 0.8 0.9 4.5 4.5 -4.5 -4.5
+\item For second function do following code changes:
+\textbf{Comment line no.91 i.e (mat[2]=(1.5-x+x*y)**2 + (2.25-x+x*y**2)**2 +(2.625-x+x*y**3)**2 (Beale  function) and uncomment no. 92 i.e (mat[2]=2*(x**2)-1.05*(x**4)+(x**6.0)/6.0+x*y+(y**2)  (three hump camel function)}
+
+\item CO-Ordinate file : CO-Ordinates20191117-160902 is generated
+
+
+\end{itemize}
+\end{minipage}
+\end{center}
+
+    \includegraphics[width=0.55\linewidth]{image2.jpg}
+    \label{fig:gnuplotforbeale}
+    \\[3pt]
+    \includegraphics[width=0.70\linewidth]{plot2.png}
+    \label{fig:plotBeale}
+    \\[2pt]
+\begin{flushleft}
+    \LARGE
+\textbf{visualization for two function is obtained. }
+\end{flushleft}
+
+\end{center}
+\newpage
+
+\begin{center}
+
+\begin{center}
+\emph{\LARGE Output}\\[1cm]
+    
+\end{center}
+\begin{center}
+\begin{minipage}{33em}
+\noindent
+when we run this program three files are generated in the folder(AssignPSO) namely AllRunStats,IndividualRun and CO-Ordinates file.
+
+\section*{Stats}
+Statistics of all the runs made is in file AllRunStats.csv
+\\[10pt]
+ \includegraphics[width=0.70\linewidth]{image3.JPG}
+    \label{fig:Stats}
+
+\end{minipage}
+\end{center}
+
+\end{center}
+\newpage
+
+\begin{center}
+\emph{\LARGE References}\\[2.5cm]
+
+\end{center}
+\begin{minipage}{33em}
+\indent
+\noindent
+\begin{enumerate}
+    \item [$\lbrack 1 \rbrack$]\url{https://en.wikipedia.org/wiki/Test_functions_for_optimization}
+    \item [$\lbrack 2 \rbrack$]\url{https://en.wikipedia.org/wiki/Particle_swarm_optimization}
+    \item [$\lbrack 3 \rbrack$]\url{https://www.mathworks.com/help/gads/what-is-particle-swarm-optimization.html}
+    \item [$\lbrack 4 \rbrack$]\url{http://www-optima.amp.i.kyoto-u.ac.jp/member/student/hedar/Hedar_files/TestGO_files/Page288.htm}
+    \item [$\lbrack 5 \rbrack$]]\url{https://adowney2.public.iastate.edu/projects/The_simplest_Particle_Swarm/The_simplest_Particle_Swarm.html}
+    \item [$\lbrack 1 \rbrack$]\url{https://nathanrooy.github.io/posts/2016-08-17/simple-particle-swarm-optimization-with-python/}
+ 
+   
+\end{enumerate}
+ \end{minipage}
+\begin{center}
+\begin{minipage}{33em}
+\bigskip
+\centering
+
+\emph{\LARGE Citation}\\[2.5cm]
+
+\noindent
+\begin{enumerate}
+    \item [$\lbrack 1 \rbrack$]\url{https://medium.com/analytics-vidhya/implementing-particle-swarm-optimization-pso-algorithm-in-python-9efc2eb179a6}
+    \item [$\lbrack 2 \rbrack$]\url{https://sourceforge.net/projects/gnuplot/}
+    \item [$\lbrack 2 \rbrack$]\url{https://www.sfu.ca/~ssurjano/beale.html}
+    \item [$\lbrack 2 \rbrack$]\url{http://benchmarkfcns.xyz/benchmarkfcns/threehumpcamelfcn.html}
+    
+ 
+  
+\end{enumerate}
+\end{minipage}
+ \end{center}
+\end{center}
+
+
+\end{document}
